@@ -1,0 +1,53 @@
+:root {
+    --text: #060504;
+    --background: #79cfe6;
+    --primary: #0000ff;
+    --secondary: #8c4040;
+    --accent: #e679c7;
+}
+
+@font-face {
+    font-family: 'KingsmanDemo';
+    src: url('fonts/KingsmanDemo-1GVgg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    /* background-color: var(--background); */
+    font-family: 'KingsmanDemo';
+}
+
+.div-note-contents {
+    border: 1px solid black;
+    padding-left: 1rem;
+    padding-bottom: 10px;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+#add-btn {
+    width: 20%;
+    margin-top: 1rem;
+    position: relative;
+    left: 40%;
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: var(--text);
+    background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1.75rem;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+#add-btn:hover {
+    background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}

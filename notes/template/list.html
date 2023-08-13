@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'list.css' %}">
+    <title>Notes App</title>
+</head>
+<body>
+    {% for data in notes_data %}
+    <div class="div-note-contents" id="{{ data.id }}">
+        <h2 class="h2-notes-title">{{ data.title }}</h2>
+        <p class="p-note-content">
+            {{ data.content }}
+        </p>
+        <button type="button" class="btns" id="delete-btn-{{ data.id }}" onclick="delete_btn_clicked(this.parentElement)">Delete</button>
+    </div>
+    {% endfor %}
+    <form class="div-main-container" action="{% url 'notes_adding' %}" method="get">
+        <button id="add-btn" type="submit">Add</button>
+    </form>
+</body>
+<script>
+    function delete_btn_clicked(parent){
+        parent_id = parent.getAttribute('id')
+        console.log(parent_id)
+        fetch('delete', {
+            method: "POST",
+            body:JSON.stringify({
+                id : parent_id
+            }),
+            headers:{
+                'Content-Type': 'application/json'
+            },
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            console.log(json)
+            parent.remove()
+        });
+    }
+    
+</script>
+</html>

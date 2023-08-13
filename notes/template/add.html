@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'add.css' %}">
+    <title>Note App || Add</title>
+</head>
+
+<body>
+    <span class="span-heading-span">Add Note</span>
+    <form class="div-main-container" action="{% url 'notes_adding' %}" method="post">
+        <input type="text" name="title" id="title" placeholder="Title">
+        <textarea name="content" id="content" cols="30" rows="10" placeholder="Type content here"></textarea>
+        <button id="add-btn" type="submit">Add</button>
+    </form>
+</body>
+
+</html>
